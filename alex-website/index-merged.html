@@ -251,7 +251,7 @@
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
         }
 
         .social-link {
@@ -293,7 +293,7 @@
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             margin-top: 2rem;
         }
 
@@ -362,8 +362,9 @@
             }
             
             .social-links {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
+                gap: 1rem;
             }
             
             .social-link {
@@ -372,8 +373,9 @@
             }
             
             .action-buttons {
-                flex-direction: column;
+                flex-direction: row;
                 align-items: center;
+                gap: 1rem;
             }
             
             .action-button {
@@ -399,9 +401,23 @@
                 font-size: 1rem;
             }
             
+            .social-links {
+                gap: 0.75rem;
+            }
+            
+            .action-buttons {
+                gap: 0.75rem;
+            }
+            
+            .social-link,
             .action-button {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
+            }
+            
+            .social-link i,
+            .action-button i {
+                font-size: 1.2rem;
             }
         }
     </style>
