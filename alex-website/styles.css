@@ -12,16 +12,16 @@
 }
 
 [data-theme="dark"] {
-    /* Dark theme variables - True black */
-    --bg-primary: #000000;
-    --bg-secondary: #0a0a0a;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
+    /* Dark theme variables */
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
     --accent: #60a5fa;
-    --border: #1a1a1a;
-    --shadow: rgba(0, 0, 0, 0.5);
-    --quote-bg: #0a0a0a;
-    --social-hover: #1a1a1a;
+    --border: #334155;
+    --shadow: rgba(0, 0, 0, 0.3);
+    --quote-bg: #1e293b;
+    --social-hover: #334155;
 }
 
 * {
@@ -64,21 +64,7 @@ body::before {
     pointer-events: none;
 }
 
-[data-theme="dark"] body::before {
-    background: 
-        /* Primary security gradient - enhanced for dark theme */
-        radial-gradient(circle at 25% 25%, rgba(59, 130, 246, 0.12) 0%, transparent 40%),
-        radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.1) 0%, transparent 40%),
-        radial-gradient(circle at 50% 10%, rgba(139, 92, 246, 0.08) 0%, transparent 35%),
-        /* Secondary security accents - enhanced for dark theme */
-        radial-gradient(circle at 10% 60%, rgba(239, 68, 68, 0.06) 0%, transparent 30%),
-        radial-gradient(circle at 90% 40%, rgba(245, 158, 11, 0.06) 0%, transparent 30%),
-        /* Base gradient for dark theme */
-        linear-gradient(135deg, 
-            rgba(0, 0, 0, 0.1) 0%, 
-            rgba(10, 10, 10, 0.05) 50%, 
-            rgba(0, 0, 0, 0.1) 100%);
-}
+
 
 /* Cybersecurity-themed background elements */
 body::after {
@@ -104,9 +90,7 @@ body::after {
     animation: matrixFlow 30s linear infinite;
 }
 
-[data-theme="dark"] body::after {
-    opacity: 0.6;
-}
+
 
 /* Floating cybersecurity elements */
 .container {
@@ -149,20 +133,7 @@ body::after {
     filter: blur(1px);
 }
 
-/* Enhanced floating elements for dark theme */
-[data-theme="dark"] .container::before {
-    opacity: 0.8;
-    background: 
-        radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%),
-        linear-gradient(45deg, rgba(59, 130, 246, 0.08), rgba(16, 185, 129, 0.08));
-}
 
-[data-theme="dark"] .container::after {
-    opacity: 0.7;
-    background: 
-        radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%),
-        linear-gradient(-45deg, rgba(139, 92, 246, 0.06), rgba(239, 68, 68, 0.06));
-}
 
 @keyframes securityPulse {
     0%, 100% { 
