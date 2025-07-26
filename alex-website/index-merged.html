@@ -288,8 +288,59 @@
             transition: all 0.3s ease;
         }
 
+        /* Action buttons */
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .action-button {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background-color: var(--bg-secondary);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            min-width: 160px;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-button:hover {
+            background-color: var(--accent);
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+
+        .action-button:hover i,
+        .action-button:hover span {
+            color: white;
+        }
+
+        .action-button i {
+            font-size: 1.2rem;
+            color: var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .action-button span {
+            font-size: 1rem;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
         /* Entrance animations */
-        .hero, .social-links {
+        .hero, .social-links, .action-buttons {
             opacity: 0;
             transform: translateY(20px);
             transition: opacity 0.6s ease, transform 0.6s ease;
@@ -327,6 +378,16 @@
                 width: 60px;
                 height: 60px;
             }
+            
+            .action-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-button {
+                width: 100%;
+                max-width: 250px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -344,6 +405,15 @@
             
             .quote p {
                 font-size: 1rem;
+            }
+            
+            .action-button {
+                padding: 0.875rem 1.5rem;
+                min-width: 140px;
+            }
+            
+            .action-button span {
+                font-size: 0.9rem;
             }
         }
     </style>
@@ -379,6 +449,17 @@
                 </a>
                 <a href="https://blog.sets9ve.com" target="_blank" rel="noopener noreferrer" class="social-link">
                     <i class="fas fa-blog"></i>
+                </a>
+            </div>
+            
+            <div class="action-buttons">
+                <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="action-button">
+                    <i class="fas fa-file-alt"></i>
+                    <span>Download CV</span>
+                </a>
+                <a href="about.html" class="action-button">
+                    <i class="fas fa-user"></i>
+                    <span>About Me</span>
                 </a>
             </div>
         </main>
@@ -418,6 +499,7 @@
             // Add smooth entrance animation
             const hero = document.querySelector('.hero');
             const socialLinks = document.querySelector('.social-links');
+            const actionButtons = document.querySelector('.action-buttons');
             
             // Fade in animation
             setTimeout(() => {
@@ -429,6 +511,11 @@
                 socialLinks.style.opacity = '1';
                 socialLinks.style.transform = 'translateY(0)';
             }, 300);
+            
+            setTimeout(() => {
+                actionButtons.style.opacity = '1';
+                actionButtons.style.transform = 'translateY(0)';
+            }, 500);
         });
     </script>
 </body>
