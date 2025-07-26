@@ -300,17 +300,15 @@
         .action-button {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            padding: 1rem 2rem;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
             background-color: var(--bg-secondary);
-            border: 2px solid var(--border);
-            border-radius: 12px;
+            border: 1px solid var(--border);
+            border-radius: 50%;
             text-decoration: none;
             color: var(--text-primary);
-            font-weight: 500;
             transition: all 0.3s ease;
-            min-width: 160px;
-            justify-content: center;
             position: relative;
             overflow: hidden;
         }
@@ -318,24 +316,18 @@
         .action-button:hover {
             background-color: var(--accent);
             border-color: var(--accent);
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.1);
             box-shadow: 0 8px 25px var(--shadow);
         }
 
-        .action-button:hover i,
-        .action-button:hover span {
+        .action-button:hover i {
             color: white;
+            transform: scale(1.1);
         }
 
         .action-button i {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             color: var(--accent);
-            transition: all 0.3s ease;
-        }
-
-        .action-button span {
-            font-size: 1rem;
-            color: var(--text-primary);
             transition: all 0.3s ease;
         }
 
@@ -385,8 +377,8 @@
             }
             
             .action-button {
-                width: 100%;
-                max-width: 250px;
+                width: 60px;
+                height: 60px;
             }
         }
 
@@ -408,12 +400,8 @@
             }
             
             .action-button {
-                padding: 0.875rem 1.5rem;
-                min-width: 140px;
-            }
-            
-            .action-button span {
-                font-size: 0.9rem;
+                width: 60px;
+                height: 60px;
             }
         }
     </style>
@@ -455,11 +443,9 @@
             <div class="action-buttons">
                 <a href="cv.pdf" target="_blank" rel="noopener noreferrer" class="action-button">
                     <i class="fas fa-file-alt"></i>
-                    <span>Download CV</span>
                 </a>
                 <a href="about.html" class="action-button">
                     <i class="fas fa-user"></i>
-                    <span>About Me</span>
                 </a>
             </div>
         </main>
