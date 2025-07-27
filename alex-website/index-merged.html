@@ -288,6 +288,42 @@
             transition: all 0.3s ease;
         }
 
+        /* Email link specific styling */
+        .email-link {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .email-link:hover::after {
+            content: "Check console for email address";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            white-space: nowrap;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 12px var(--shadow);
+            z-index: 1000;
+            margin-bottom: 0.5rem;
+        }
+
+        .email-link:hover::before {
+            content: "";
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: var(--bg-secondary);
+            margin-bottom: -0.5rem;
+            z-index: 1000;
+        }
+
         /* Action buttons */
         .action-buttons {
             display: flex;
@@ -448,6 +484,9 @@
                 <a href="https://github.com/sets9ve" target="_blank" rel="noopener noreferrer" class="social-link">
                     <i class="fab fa-github"></i>
                 </a>
+                <a href="#" class="social-link email-link" id="email-link" title="Hover to see tooltip, click to reveal email in console">
+                    <i class="fas fa-envelope"></i>
+                </a>
                 <a href="https://linkedin.com/in/sets9ve" target="_blank" rel="noopener noreferrer" class="social-link">
                     <i class="fab fa-linkedin"></i>
                 </a>
@@ -518,6 +557,34 @@
                 actionButtons.style.opacity = '1';
                 actionButtons.style.transform = 'translateY(0)';
             }, 500);
+
+            // Email functionality
+            const emailLink = document.getElementById('email-link');
+            const hexEmail = '616263406162632e636f6d'; // abc@abc.com in hex
+            
+            emailLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Decrypt hex to string
+                const email = hexToString(hexEmail);
+                
+                // Show alert
+                alert('Email address logged to console. Open Developer Tools (F12) and check the console to see the email address.');
+                
+                // Log to console
+                console.log('%c📧 Email Address:', 'color: #3b82f6; font-weight: bold; font-size: 14px;');
+                console.log('%c' + email, 'color: #10b981; font-size: 16px; font-weight: bold;');
+                console.log('%c💡 Tip: You can copy this email address', 'color: #f59e0b; font-size: 12px;');
+            });
+
+            // Function to convert hex to string
+            function hexToString(hex) {
+                let str = '';
+                for (let i = 0; i < hex.length; i += 2) {
+                    str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+                }
+                return str;
+            }
         });
     </script>
 </body>
