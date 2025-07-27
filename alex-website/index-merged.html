@@ -661,21 +661,27 @@
             const socialLinks = document.querySelector('.social-links');
             const actionButtons = document.querySelector('.action-buttons');
             
-            // Fade in animation
-            setTimeout(() => {
-                hero.style.opacity = '1';
-                hero.style.transform = 'translateY(0)';
-            }, 100);
+            // Fade in animation with error checking
+            if (hero) {
+                setTimeout(() => {
+                    hero.style.opacity = '1';
+                    hero.style.transform = 'translateY(0)';
+                }, 100);
+            }
             
-            setTimeout(() => {
-                socialLinks.style.opacity = '1';
-                socialLinks.style.transform = 'translateY(0)';
-            }, 300);
+            if (socialLinks) {
+                setTimeout(() => {
+                    socialLinks.style.opacity = '1';
+                    socialLinks.style.transform = 'translateY(0)';
+                }, 300);
+            }
             
-            setTimeout(() => {
-                actionButtons.style.opacity = '1';
-                actionButtons.style.transform = 'translateY(0)';
-            }, 500);
+            if (actionButtons) {
+                setTimeout(() => {
+                    actionButtons.style.opacity = '1';
+                    actionButtons.style.transform = 'translateY(0)';
+                }, 500);
+            }
 
             // Email functionality
             const emailLink = document.getElementById('email-link');
@@ -684,37 +690,39 @@
             const closeBtn = document.getElementById('close-modal');
             const hexEmail = '616263406162632e636f6d'; // abc@abc.com in hex
             
-            emailLink.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                // Decrypt hex to string
-                const email = hexToString(hexEmail);
-                
-                // Show modal
-                modal.classList.add('show');
-                modalOverlay.classList.add('show');
-                
-                // Log to console
-                console.log('%c📧 Email Address:', 'color: #3b82f6; font-weight: bold; font-size: 14px;');
-                console.log('%c' + email, 'color: #10b981; font-size: 16px; font-weight: bold;');
-                console.log('%c💡 Tip: You can copy this email address', 'color: #f59e0b; font-size: 12px;');
-            });
+            if (emailLink && modal && modalOverlay && closeBtn) {
+                emailLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Decrypt hex to string
+                    const email = hexToString(hexEmail);
+                    
+                    // Show modal
+                    modal.classList.add('show');
+                    modalOverlay.classList.add('show');
+                    
+                    // Log to console
+                    console.log('%c📧 Email Address:', 'color: #3b82f6; font-weight: bold; font-size: 14px;');
+                    console.log('%c' + email, 'color: #10b981; font-size: 16px; font-weight: bold;');
+                    console.log('%c💡 Tip: You can copy this email address', 'color: #f59e0b; font-size: 12px;');
+                });
 
-            // Close modal functionality
-            function closeModal() {
-                modal.classList.remove('show');
-                modalOverlay.classList.remove('show');
-            }
-
-            closeBtn.addEventListener('click', closeModal);
-            modalOverlay.addEventListener('click', closeModal);
-
-            // Close modal with Escape key
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.classList.contains('show')) {
-                    closeModal();
+                // Close modal functionality
+                function closeModal() {
+                    modal.classList.remove('show');
+                    modalOverlay.classList.remove('show');
                 }
-            });
+
+                closeBtn.addEventListener('click', closeModal);
+                modalOverlay.addEventListener('click', closeModal);
+
+                // Close modal with Escape key
+                document.addEventListener('keydown', function(e) {
+                    if (e.key === 'Escape' && modal.classList.contains('show')) {
+                        closeModal();
+                    }
+                });
+            }
 
             // Function to convert hex to string
             function hexToString(hex) {
